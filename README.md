@@ -1,101 +1,101 @@
-# 📋 PHP CRUD Usuários - API com Laravel
+# 📁 TaskHub – Painel Pessoal de Tarefas com Anexos
 
-Este projeto é uma API RESTful desenvolvida com **Laravel 10** e **PHP 8.1**, criada como parte dos meus estudos em backend com PHP. A API implementa um CRUD (Create, Read, Update, Delete) de usuários, com integração ao banco de dados MySQL.
+O **TaskHub** é um painel pessoal de tarefas feito com Laravel, onde cada usuário pode cadastrar suas próprias tarefas e anexar arquivos. Ideal para organizar atividades e centralizar documentos em um único lugar, com visual moderno, intuitivo e responsivo.
 
----
-
-## 🎯 Objetivo do Projeto
-
-Criar uma API simples utilizando Laravel com operações básicas de manipulação de dados para consolidar os conhecimentos em:
-
-- PHP moderno (8.1)
-- Laravel (estrutura MVC, rotas, controllers, Eloquent ORM)
-- Integração com banco de dados MySQL
-- Testes de requisições RESTful usando Postman
-- Organização de projetos backend para portfólio
+![Laravel](https://img.shields.io/badge/Framework-Laravel-red?style=flat&logo=laravel)
+![Status](https://img.shields.io/badge/status-concluído-success)
+![License](https://img.shields.io/badge/license-MIT-blue)
 
 ---
 
-## 🚀 Como Executar o Projeto
+## ✨ Funcionalidades
 
-### ✅ Pré-requisitos
+- Autenticação de usuários (registro/login)
+- Painel pessoal de tarefas
+- Criação e exclusão de tarefas
+- Upload e exclusão de arquivos por tarefa
+- Interface escura e responsiva com Tailwind CSS
+- Proteção de acesso via middleware `auth`
 
+---
+
+## 🛠 Tecnologias utilizadas
+
+- Laravel 10
+- Laravel Breeze (Blade)
+- Tailwind CSS 3
 - PHP 8.1+
-- Composer
 - MySQL
-- Laragon (ou outro ambiente local)
-- PHPStorm (IDE recomendada)
-- Postman (para testar a API)
+- Vite
 
-### ⚙️ Passos para rodar localmente
+---
+
+## 🖼️ Screenshots
+
+### 🔐 Tela de Login
+
+![Login](screenshots/Login.png)
+
+### ✅ Painel de Tarefas
+
+![Painel](screenshots/Tarefas.png)
+
+---
+
+## 🚀 Como rodar localmente
 
 ```bash
-# 1. Clone o repositório
-git clone https://github.com/romariojhonatan/php-crud-usuarios.git
-cd php-crud-usuarios
+# 1. Clone o projeto
+git clone https://github.com/romariojhonatan/taskhub.git
+cd taskhub
 
-# 2. Instale as dependências com o Composer
+# 2. Instale as dependências PHP
 composer install
 
-# 3. Copie o arquivo de ambiente e configure com seus dados
+# 3. Instale as dependências JS
+npm install && npm run dev
+
+# 4. Configure o ambiente
 cp .env.example .env
-
-# Edite o .env e configure as variáveis de conexão com o banco:
-# DB_CONNECTION=mysql
-# DB_HOST=127.0.0.1
-# DB_PORT=3306
-# DB_DATABASE=nome_do_banco
-# DB_USERNAME=seu_usuario
-# DB_PASSWORD=sua_senha
-
-# 4. Gere a chave da aplicação
 php artisan key:generate
 
-# 5. Execute as migrations para criar as tabelas
+# 5. Configure o banco e execute as migrations
 php artisan migrate
 
-# 6. Inicie o servidor local
+# 6. Suba o servidor
 php artisan serve
+```
 
-# A aplicação estará acessível em: http://127.0.0.1:8000
+Acesse: [http://localhost:8000](http://localhost:8000)
+
+---
+
+## ✅ Estrutura
+
+```bash
+app/
+├── Models/
+│   ├── Usuario.php
+│   ├── Tarefa.php
+│   └── Anexo.php
+resources/
+├── views/
+│   └── tarefa/
+│       ├── index.blade.php
+│       └── create.blade.php
+routes/
+└── web.php
+storage/
+└── app/public/anexos/
 ```
 
 ---
 
-## 📡 Endpoints da API
+## 📄 Licença
 
-| Método | Endpoint               | Ação                     |
-|--------|------------------------|--------------------------|
-| GET    | /usuarios              | Lista todos os usuários  |
-| GET    | /usuarios/{id}         | Busca um usuário por ID  |
-| POST   | /usuarios              | Cria um novo usuário     |
-| PUT    | /usuarios/{id}         | Atualiza um usuário      |
-| DELETE | /usuarios/{id}         | Remove um usuário        |
-
-> ⚠️ Para requisições `POST`, `PUT` e `DELETE`, certifique-se de enviar os dados como **JSON** no corpo da requisição com o header `Content-Type: application/json`.
+Este projeto está sob a licença MIT.  
+Feito com ❤️ por [Romário](https://github.com/romariojhonatan)
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
-
-- [PHP 8.1](https://www.php.net/)
-- [Laravel 10](https://laravel.com/)
-- [MySQL](https://www.mysql.com/)
-- [Composer](https://getcomposer.org/)
-- [PHPStorm](https://www.jetbrains.com/phpstorm/)
-- [Laragon](https://laragon.org/)
-- [Postman](https://www.postman.com/)
-
----
-
-## 👨‍💻 Autor
-
-Desenvolvido por **Romário Jhonatan**  
-[🔗 GitHub - romariojhonatan](https://github.com/romariojhonatan)
-
----
-
-## 📌 Status do Projeto
-
-✅ Projeto Finalizado – CRUD funcional com Laravel + MySQL  
-🔜 Futuras melhorias: autenticação, validações, testes automatizados, interface web.
+> Projeto desenvolvido para fins de estudo e portfólio pessoal.

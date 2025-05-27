@@ -1,22 +1,13 @@
 <?php
 
-use http\Client\Request;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PostController;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "api" middleware group. Make something great!
+| Aqui é onde você pode registrar rotas de API para sua aplicação. Essas
+| rotas são carregadas pelo RouteServiceProvider e todas elas
+| serão atribuídas ao grupo de middleware "api". Crie algo incrível!
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
-Route::apiResource('posts', PostController::class);

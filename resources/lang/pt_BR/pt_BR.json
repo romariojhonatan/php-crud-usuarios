@@ -1,0 +1,18 @@
+{
+    "E-Mail Address": "Endereço de e-mail",
+    "Password": "Senha",
+    "Remember Me": "Lembrar-me",
+    "Forgot Your Password?": "Esqueceu sua senha?",
+    "Login": "Entrar",
+    "Register": "Registrar",
+    "Name": "Nome",
+    "Confirm Password": "Confirmar Senha",
+    "Logout": "Sair",
+    "Dashboard": "Painel",
+    "These credentials do not match our records.": "As credenciais não correspondem aos nossos registros.",
+    "The email field is required.": "O campo e-mail é obrigatório.",
+    "The password field is required.": "O campo senha é obrigatório.",
+    "The name field is required.": "O campo nome é obrigatório.",
+    "The email has already been taken.": "O e-mail já está em uso.",
+    "The password confirmation does not match.": "A confirmação da senha não confere."
+}

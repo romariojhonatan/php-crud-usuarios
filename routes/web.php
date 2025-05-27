@@ -1,32 +1,33 @@
 <?php
 
-use App\Http\Controllers\PostController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TarefaController;
 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
+| Aqui é onde você pode registrar rotas web para sua aplicação. Essas
+| rotas são carregadas pelo RouteServiceProvider e todas elas
+| serão atribuídas ao grupo de middleware "web". Crie algo incrível!
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::middleware('auth')->group(function () {
+    Route::get('/', function () {return redirect()->route('tarefa.index');});
+
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('/tarefas', [TarefaController::class, 'index'])->name('tarefa.index');
+    Route::get('/tarefas/criar', [TarefaController::class, 'create'])->name('tarefa.create');
+    Route::post('/tarefas', [TarefaController::class, 'store'])->name('tarefa.store');
+    Route::delete('/tarefas/{id}', [TarefaController::class, 'destroy'])->name('tarefa.destroy');
+    Route::delete('/anexos/{id}', [TarefaController::class, 'removerAnexo'])->name('tarefa.anexo.destroy');
+    Route::post('/tarefas/{id}/anexar', [TarefaController::class, 'anexar'])->name('tarefa.anexar');
 });
 
-Route::get('/usuarios', [UserController::class, 'index']);
-Route::get('/usuarios/{id}', [UserController::class, 'show']);
-Route::post('/usuarios', [UserController::class, 'store']);
-Route::put('/usuarios/{id}', [UserController::class, 'update']);
-Route::delete('/usuarios/{id}', [UserController::class, 'destroy']);
-
-Route::get('/posts', [PostController::class, 'index']);
-Route::get('/posts/{id}', [PostController::class, 'show']);
-Route::post('/posts', [PostController::class, 'store']);
-Route::put('/posts/{id}', [PostController::class, 'update']);
-Route::delete('/posts/{id}', [PostController::class, 'destroy']);
+require __DIR__.'/auth.php';
